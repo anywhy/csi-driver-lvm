@@ -25,8 +25,8 @@ type nodeServer struct {
 }
 
 var (
-	masterURL  string
-	kubeconfig string
+	MasterURL  string
+	Kubeconfig string
 )
 
 func (ns *nodeServer) GetNodeID() string {
@@ -109,8 +109,8 @@ func (ns *nodeServer) createVolume(ctx context.Context, volumeID string, vgName 
 
 // clusterConfig get k8s cluster config
 func clusterConfig() (*rest.Config, error) {
-	if len(masterURL) > 0 || len(kubeconfig) > 0 {
-		return clientcmd.BuildConfigFromFlags(masterURL, kubeconfig)
+	if len(MasterURL) > 0 || len(Kubeconfig) > 0 {
+		return clientcmd.BuildConfigFromFlags(MasterURL, Kubeconfig)
 	}
 	return rest.InClusterConfig()
 }
