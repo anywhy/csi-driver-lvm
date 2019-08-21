@@ -16,6 +16,13 @@ import (
 	"k8s.io/kubernetes/pkg/util/mount"
 )
 
+const (
+	// LvmVgName lvm vg name
+	LvmVgName = "vgName"
+	// DefaultFsType default fs type
+	DefaultFsType = "ext4"
+)
+
 type nodeServer struct {
 	*csicommon.DefaultNodeServer
 	client  kubernetes.Interface
@@ -25,7 +32,9 @@ type nodeServer struct {
 }
 
 var (
-	MasterURL  string
+	// MasterURL  master endpoint
+	MasterURL string
+	// Kubeconfig config address
 	Kubeconfig string
 )
 

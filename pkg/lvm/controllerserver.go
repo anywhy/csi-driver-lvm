@@ -43,6 +43,9 @@ func (cs *controllerServer) CreateVolume(ctx context.Context, req *csi.CreateVol
 }
 
 func (cs *controllerServer) DeleteVolume(ctx context.Context, req *csi.DeleteVolumeRequest) (*csi.DeleteVolumeResponse, error) {
+	if err := cs.validateDeleteVolumeRequest(); err != nil {
+		return nil, err
+	}
 	glog.Infof("DeleteVolume: Successfull deleting volume: %s", req.GetVolumeId())
 	return &csi.DeleteVolumeResponse{}, nil
 }
@@ -75,6 +78,11 @@ func (cs *controllerServer) validateCreateVolumeRequest(req *csi.CreateVolumeReq
 	reqCaps := req.GetVolumeCapabilities()
 	if reqCaps == nil {
 		return status.Error(codes.InvalidArgument, "volume Capabilities cannot be empty")
+	}
+	for _, cap := range reqCaps {
+		if cap.GetBlock() != nil {
+			return status.Error(codes.Unimplemented, "Block Volume not supported")
+		}
 	}
 
 	return nil
