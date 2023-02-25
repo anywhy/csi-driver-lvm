@@ -8,7 +8,7 @@ require (
 	github.com/imdario/mergo v0.3.7 // indirect
 	github.com/kubernetes-csi/csi-lib-utils v0.6.1 // indirect
 	github.com/kubernetes-csi/drivers v1.0.2
-	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4 // indirect
+	golang.org/x/crypto v0.1.0 // indirect
 	golang.org/x/time v0.0.0-20190308202827-9d24e82272b4 // indirect
 	google.golang.org/grpc v1.23.0
 	k8s.io/api v0.0.0-20190814101207-0772a1bdf941 // indirect
