@@ -12,7 +12,7 @@ require (
 	golang.org/x/time v0.0.0-20190308202827-9d24e82272b4 // indirect
 	google.golang.org/grpc v1.23.0
 	k8s.io/api v0.0.0-20190814101207-0772a1bdf941 // indirect
-	k8s.io/apimachinery v0.0.0-20190820020715-78ffbfd52d52
+	k8s.io/apimachinery v0.15.7
 	k8s.io/client-go v11.0.0+incompatible
 	k8s.io/kubernetes v1.13.10
 	k8s.io/utils v0.0.0-20190809000727-6c36bc71fc4a // indirect
